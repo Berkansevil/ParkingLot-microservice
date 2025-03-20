@@ -1,0 +1,33 @@
+2025-03-04T15:38:01.484+03:00  INFO 27244 --- [config-server] [main] c.a.c.ConfigServerApplicationTests       : Starting ConfigServerApplicationTests using Java 22 with PID 27244 (started by bsevi in C:\Users\bsevi\Desktop\Java-Örneklendirme\december-backend-parking-1\config-server)
+2025-03-04T15:38:01.486+03:00  INFO 27244 --- [config-server] [main] c.a.c.ConfigServerApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2025-03-04T15:38:03.594+03:00  INFO 27244 --- [config-server] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7f17f742-a598-3d03-995e-816615e7cefb
+2025-03-04T15:38:06.084+03:00  INFO 27244 --- [config-server] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-03-04T15:38:06.208+03:00  WARN 27244 --- [config-server] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-04T15:38:06.226+03:00  INFO 27244 --- [config-server] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoints beneath base path '/actuator'
+2025-03-04T15:38:06.314+03:00  INFO 27244 --- [config-server] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-03-04T15:38:06.370+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-03-04T15:38:06.382+03:00  INFO 27244 --- [config-server] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-04T15:38:06.403+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-03-04T15:38:06.403+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-03-04T15:38:06.403+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-03-04T15:38:06.403+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-03-04T15:38:06.404+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-03-04T15:38:06.404+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-03-04T15:38:06.404+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-03-04T15:38:06.963+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-03-04T15:38:06.968+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-03-04T15:38:06.972+03:00  INFO 27244 --- [config-server] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-03-04T15:38:06.974+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1741091886974 with initial instances count: 3
+2025-03-04T15:38:06.978+03:00  INFO 27244 --- [config-server] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CONFIG-SERVER with eureka with status UP
+2025-03-04T15:38:06.979+03:00  INFO 27244 --- [config-server] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741091886979, current=UP, previous=STARTING]
+2025-03-04T15:38:06.983+03:00  INFO 27244 --- [config-server] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-IEO3AME.home:config-server:8181: registering service...
+2025-03-04T15:38:07.010+03:00  INFO 27244 --- [config-server] [main] c.a.c.ConfigServerApplicationTests       : Started ConfigServerApplicationTests in 6.273 seconds (process running for 8.014)
+2025-03-04T15:38:07.060+03:00  INFO 27244 --- [config-server] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-IEO3AME.home:config-server:8181 - registration status: 204
+2025-03-04T15:38:08.203+03:00  INFO 27244 --- [config-server] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CONFIG-SERVER with eureka with status DOWN
+2025-03-04T15:38:08.204+03:00  INFO 27244 --- [config-server] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741091888204, current=DOWN, previous=UP]
+2025-03-04T15:38:08.204+03:00  INFO 27244 --- [config-server] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-IEO3AME.home:config-server:8181: registering service...
+2025-03-04T15:38:08.212+03:00  INFO 27244 --- [config-server] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-IEO3AME.home:config-server:8181 - registration status: 204
+2025-03-04T15:38:08.216+03:00  INFO 27244 --- [config-server] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-03-04T15:38:11.221+03:00  INFO 27244 --- [config-server] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-03-04T15:38:11.238+03:00  INFO 27244 --- [config-server] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-IEO3AME.home:config-server:8181 - deregister  status: 200
+2025-03-04T15:38:11.239+03:00  INFO 27244 --- [config-server] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

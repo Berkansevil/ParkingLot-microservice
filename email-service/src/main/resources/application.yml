@@ -1,0 +1,65 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: email-service
+  config:
+    import: "optional:configserver:http://localhost:8181"
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/email_service
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 12345
+
+    flyway:
+      enabled: true
+      baseline-on-migrate: true
+      locations: classpath:db/migration
+
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          show-sql: true
+          ddl-auto: none
+
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8192"
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: 2ddd9bbf861c7c
+    password: dda6af58419776
+
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+logging:
+  file:
+    path: C:\log
+    name: config-server.log
+    max-history: 5
+    max-size: 10MB
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always

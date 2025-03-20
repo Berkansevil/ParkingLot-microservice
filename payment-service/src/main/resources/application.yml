@@ -1,0 +1,48 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: payment-service
+
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8192"
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/payment-service
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        ddl-auto: update
+    config:
+      import: "optional:configserver:http://localhost:8181"
+
+logging:
+  file:
+   name: C:/Users/log/application.log
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always

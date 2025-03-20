@@ -1,0 +1,37 @@
+server:
+  port: 8072
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+    discovery:
+      locator:
+      enabled: true
+  boot:
+    admin:
+          client:
+            url: "http://localhost:8192"
+  security:
+    oauth2:
+      resourceserver:
+         jwt:
+           jwk-set-uri: "http://localhost:8080/realms/microservice/protocol/openid-connect/certs"
+logging:
+  file:
+    name: gateway-server.log
+    max-history: 5
+    max-size: 10MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "gateway,health,info"
+
+  endpoint:
+    gateway:
+      access: read_only
+
+

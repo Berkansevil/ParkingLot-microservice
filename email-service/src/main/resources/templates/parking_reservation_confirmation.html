@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Reservation Confirmation</title>
+    </head>
+    <body>
+        <p>Hello, <span th:text="${name}"></span>!</p>
+        <p>Your parking reservation has been created successfully.</p>
+        <hr>
+        <p>Vehicle ID: <span th:text="${vehicleId}"></span></p>
+        <br />
+        <p>Parking Spot ID: <span th:text="${parkingSpotId}"></span></p>
+        <br />
+        <p>Start Date: <span th:text="${createdAt}"></span></p>
+        <br />
+        <p>End Date: <span th:text="${endTime}"></span></p>
+        <hr>
+        <p>Thank you for choosing us!</p>
+    </body>
+</html>

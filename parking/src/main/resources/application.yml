@@ -1,0 +1,58 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: parking
+  config:
+    import: "optional:configserver:http://localhost:8181"
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parking
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        ddl-auto: update
+  boot:
+    admin:
+          client:
+            url: "http://localhost:8192"
+
+logging:
+  file:
+    name: parking.log
+    max-history: 5
+    max-size: 10MB
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+keycloak:
+  admin-url: "http://localhost:8080/admin/realms/microservice/users"
+  admin-client-id: "admin-cli"
+  token-url: "http://localhost:8080/realms/microservice/protocol/openid-connect/token"
+  app-client-id: "parking-app-client"
+  client-secret: "LSSG2CLjOiwjXwqxmMOsXbOj36PgAb1j"
+  admin-client-secret: "CFZLyL45WBpqcIOJJNuFrAGxucj2vVSv"
+  logout-url: "http://localhost:8080/realms/microservice/protocol/openid-connect/logout"

@@ -1,0 +1,44 @@
+server :
+  port : 8090
+
+spring:
+  application:
+    name: reservation-service
+  config:
+    import: "optional:configserver:http://localhost:8181"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservation
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  boot:
+    admin:
+          client:
+            url: "http://localhost:8192"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+logging:
+  file:
+    name: reservation-service.log
+    max-history: 5
+    max-size: 10MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always

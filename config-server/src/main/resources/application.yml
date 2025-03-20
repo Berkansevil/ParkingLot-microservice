@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/gorkemiskeceli/config-server-demo
+    compatibility-verifier:
+      enabled: false
+
+server:
+  port: 8181
+
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8192"
+logging:
+  file:
+    name: config-server.log
+    max-history: 5
+    max-size: 10MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always

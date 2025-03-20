@@ -1,0 +1,240 @@
+2025-02-01T15:02:14.874+03:00  INFO 13444 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : Starting PaymentServiceApplication using Java 22 with PID 13444 (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes started by bsevi in C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1)
+2025-02-01T15:02:14.889+03:00  INFO 13444 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-02-01T15:02:14.966+03:00  INFO 13444 --- [payment-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-01T15:02:14.966+03:00  INFO 13444 --- [payment-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-01T15:02:16.446+03:00  INFO 13444 --- [payment-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-01T15:02:16.546+03:00  INFO 13444 --- [payment-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 1 JPA repository interface.
+2025-02-01T15:02:17.498+03:00  INFO 13444 --- [payment-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-02-01T15:02:17.523+03:00  INFO 13444 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-01T15:02:17.524+03:00  INFO 13444 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-01T15:02:17.637+03:00  INFO 13444 --- [payment-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-01T15:02:17.638+03:00  INFO 13444 --- [payment-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2670 ms
+2025-02-01T15:02:18.080+03:00  INFO 13444 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-01T15:02:18.498+03:00  INFO 13444 --- [payment-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6182b945
+2025-02-01T15:02:18.501+03:00  INFO 13444 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-01T15:02:18.547+03:00  INFO 13444 --- [payment-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/payment-service (PostgreSQL 16.3)
+2025-02-01T15:02:18.601+03:00  INFO 13444 --- [payment-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2025-02-01T15:02:18.605+03:00  INFO 13444 --- [payment-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.023s)
+2025-02-01T15:02:18.622+03:00  INFO 13444 --- [payment-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2025-02-01T15:02:18.798+03:00  INFO 13444 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2025-02-01T15:02:18.810+03:00  INFO 13444 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - init schema"
+2025-02-01T15:02:18.837+03:00 ERROR 13444 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migration of schema "public" to version "1 - init schema" failed! Changes successfully rolled back.
+2025-02-01T15:02:18.843+03:00  WARN 13444 --- [payment-service] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Script V1__init_schema.sql failed
+---------------------------------
+SQL State  : 42601
+Error Code : 0
+Message    : ERROR: syntax error at or near "ON"
+  Position: 575
+Location   : db/migration/V1__init_schema.sql (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes\db\migration\V1__init_schema.sql)
+Line       : 4
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+2025-02-01T15:02:18.844+03:00  INFO 13444 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-01T15:02:18.974+03:00  INFO 13444 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-01T15:02:18.978+03:00  INFO 13444 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-02-01T15:02:18.994+03:00  INFO 13444 --- [payment-service] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-01T15:02:19.035+03:00 ERROR 13444 --- [payment-service] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Script V1__init_schema.sql failed
+---------------------------------
+SQL State  : 42601
+Error Code : 0
+Message    : ERROR: syntax error at or near "ON"
+  Position: 575
+Location   : db/migration/V1__init_schema.sql (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes\db\migration\V1__init_schema.sql)
+Line       : 4
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:325) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.1.jar:6.2.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.1.jar:6.2.1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.1.jar:3.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.1.jar:3.4.1]
+	at com.parking.payment_service.PaymentServiceApplication.main(PaymentServiceApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.1.jar:3.4.1]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Script V1__init_schema.sql failed
+---------------------------------
+SQL State  : 42601
+Error Code : 0
+Message    : ERROR: syntax error at or near "ON"
+  Position: 575
+Location   : db/migration/V1__init_schema.sql (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes\db\migration\V1__init_schema.sql)
+Line       : 4
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312) ~[spring-beans-6.2.1.jar:6.2.1]
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.internal.exception.FlywayMigrateException: Script V1__init_schema.sql failed
+---------------------------------
+SQL State  : 42601
+Error Code : 0
+Message    : ERROR: syntax error at or near "ON"
+  Position: 575
+Location   : db/migration/V1__init_schema.sql (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes\db\migration\V1__init_schema.sql)
+Line       : 4
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:399) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:283) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:282) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:255) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:153) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.database.postgresql.PostgreSQLAdvisoryLockTemplate.execute(PostgreSQLAdvisoryLockTemplate.java:77) ~[flyway-database-postgresql-10.20.1.jar:na]
+	at org.flywaydb.database.postgresql.PostgreSQLAdvisoryLockTemplate.lambda$execute$0(PostgreSQLAdvisoryLockTemplate.java:60) ~[flyway-database-postgresql-10.20.1.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.database.postgresql.PostgreSQLAdvisoryLockTemplate.execute(PostgreSQLAdvisoryLockTemplate.java:60) ~[flyway-database-postgresql-10.20.1.jar:na]
+	at org.flywaydb.database.postgresql.PostgreSQLConnection.lock(PostgreSQLConnection.java:105) ~[flyway-database-postgresql-10.20.1.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:153) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:104) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.Flyway.lambda$migrate$1(Flyway.java:230) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:176) ~[flyway-core-10.20.1.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.4.1.jar:3.4.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-6.2.1.jar:6.2.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-6.2.1.jar:6.2.1]
+	... 20 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Script V1__init_schema.sql failed
+---------------------------------
+SQL State  : 42601
+Error Code : 0
+Message    : ERROR: syntax error at or near "ON"
+  Position: 575
+Location   : db/migration/V1__init_schema.sql (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes\db\migration\V1__init_schema.sql)
+Line       : 4
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:256) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:217) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:137) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:75) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:66) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:31) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:65) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:391) ~[flyway-core-10.20.1.jar:na]
+	... 39 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "ON"
+  Position: 575
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312) ~[postgresql-42.7.4.jar:42.7.4]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:88) ~[flyway-core-10.20.1.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:212) ~[flyway-core-10.20.1.jar:na]
+	... 45 common frames omitted
+
+2025-02-01T15:04:00.231+03:00  INFO 26852 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : Starting PaymentServiceApplication using Java 22 with PID 26852 (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes started by bsevi in C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1)
+2025-02-01T15:04:00.234+03:00  INFO 26852 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-02-01T15:04:00.302+03:00  INFO 26852 --- [payment-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-01T15:04:00.302+03:00  INFO 26852 --- [payment-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-01T15:04:01.496+03:00  INFO 26852 --- [payment-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-01T15:04:01.575+03:00  INFO 26852 --- [payment-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2025-02-01T15:04:02.391+03:00  INFO 26852 --- [payment-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-02-01T15:04:02.414+03:00  INFO 26852 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-01T15:04:02.415+03:00  INFO 26852 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-01T15:04:02.545+03:00  INFO 26852 --- [payment-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-01T15:04:02.546+03:00  INFO 26852 --- [payment-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2243 ms
+2025-02-01T15:04:02.958+03:00  INFO 26852 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-01T15:04:03.244+03:00  INFO 26852 --- [payment-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@29078983
+2025-02-01T15:04:03.246+03:00  INFO 26852 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-01T15:04:03.273+03:00  INFO 26852 --- [payment-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/payment-service (PostgreSQL 16.3)
+2025-02-01T15:04:03.324+03:00  INFO 26852 --- [payment-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.026s)
+2025-02-01T15:04:03.445+03:00  INFO 26852 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2025-02-01T15:04:03.463+03:00  INFO 26852 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - init schema"
+2025-02-01T15:04:03.503+03:00  INFO 26852 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - insert data"
+2025-02-01T15:04:03.520+03:00  INFO 26852 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.025s)
+2025-02-01T15:04:03.677+03:00  INFO 26852 --- [payment-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-01T15:04:03.796+03:00  INFO 26852 --- [payment-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-02-01T15:04:03.859+03:00  INFO 26852 --- [payment-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-01T15:04:04.433+03:00  INFO 26852 --- [payment-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-01T15:04:04.547+03:00  WARN 26852 --- [payment-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-01T15:04:04.567+03:00  INFO 26852 --- [payment-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-01T15:04:05.819+03:00  INFO 26852 --- [payment-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-01T15:04:05.824+03:00  INFO 26852 --- [payment-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-01T15:04:06.461+03:00  WARN 26852 --- [payment-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-01T15:04:07.082+03:00  INFO 26852 --- [payment-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-01T15:04:07.120+03:00  INFO 26852 --- [payment-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-02-01T15:04:07.131+03:00  INFO 26852 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : Started PaymentServiceApplication in 7.768 seconds (process running for 8.624)
+2025-02-01T15:04:52.851+03:00  INFO 26852 --- [payment-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-01T15:04:52.865+03:00  INFO 26852 --- [payment-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-02-01T15:04:52.868+03:00  INFO 26852 --- [payment-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-01T15:04:52.872+03:00  INFO 26852 --- [payment-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-01T15:04:52.875+03:00  INFO 26852 --- [payment-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-01T16:05:56.079+03:00  INFO 8168 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : Starting PaymentServiceApplication using Java 22 with PID 8168 (C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1\payment-service\target\classes started by bsevi in C:\Users\bsevi\Desktop\Java-Örneklendirme\Microservice-backend-parking-1)
+2025-02-01T16:05:56.084+03:00  INFO 8168 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-02-01T16:05:56.173+03:00  INFO 8168 --- [payment-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-01T16:05:56.173+03:00  INFO 8168 --- [payment-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-01T16:05:57.429+03:00  INFO 8168 --- [payment-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-01T16:05:57.511+03:00  INFO 8168 --- [payment-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 1 JPA repository interface.
+2025-02-01T16:05:58.356+03:00  INFO 8168 --- [payment-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-02-01T16:05:58.378+03:00  INFO 8168 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-01T16:05:58.378+03:00  INFO 8168 --- [payment-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-01T16:05:58.494+03:00  INFO 8168 --- [payment-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-01T16:05:58.495+03:00  INFO 8168 --- [payment-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2321 ms
+2025-02-01T16:05:58.858+03:00  INFO 8168 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-01T16:05:59.156+03:00  INFO 8168 --- [payment-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@583036ee
+2025-02-01T16:05:59.158+03:00  INFO 8168 --- [payment-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-01T16:05:59.196+03:00  INFO 8168 --- [payment-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/payment-service (PostgreSQL 16.3)
+2025-02-01T16:05:59.253+03:00  INFO 8168 --- [payment-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.033s)
+2025-02-01T16:05:59.371+03:00  INFO 8168 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 2
+2025-02-01T16:05:59.374+03:00  INFO 8168 --- [payment-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2025-02-01T16:05:59.529+03:00  INFO 8168 --- [payment-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-01T16:05:59.633+03:00  INFO 8168 --- [payment-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-02-01T16:05:59.690+03:00  INFO 8168 --- [payment-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-01T16:06:00.121+03:00  INFO 8168 --- [payment-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-01T16:06:00.196+03:00  WARN 8168 --- [payment-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-01T16:06:00.212+03:00  INFO 8168 --- [payment-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-01T16:06:01.142+03:00  INFO 8168 --- [payment-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-01T16:06:01.145+03:00  INFO 8168 --- [payment-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-01T16:06:01.650+03:00  WARN 8168 --- [payment-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-01T16:06:02.329+03:00  WARN 8168 --- [payment-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-02-01T16:06:02.374+03:00  INFO 8168 --- [payment-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-02-01T16:06:02.386+03:00  INFO 8168 --- [payment-service] [restartedMain] c.p.p.PaymentServiceApplication          : Started PaymentServiceApplication in 7.357 seconds (process running for 8.272)
+2025-02-01T16:06:17.885+03:00  INFO 8168 --- [payment-service] [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-01T16:06:17.885+03:00  INFO 8168 --- [payment-service] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-01T16:06:17.887+03:00  INFO 8168 --- [payment-service] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-02-01T16:06:18.610+03:00  INFO 8168 --- [payment-service] [http-nio-8082-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 308 ms
+2025-02-01T16:06:32.578+03:00  INFO 8168 --- [payment-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-01T16:06:32.592+03:00  INFO 8168 --- [payment-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-02-01T16:06:32.597+03:00  INFO 8168 --- [payment-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-01T16:06:32.601+03:00  INFO 8168 --- [payment-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-01T16:06:32.605+03:00  INFO 8168 --- [payment-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

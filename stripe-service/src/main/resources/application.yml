@@ -1,0 +1,50 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: stripe-service
+
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8192"
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stripe-service
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 12345
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        ddl-auto: update
+
+    hibernate:
+        ddl-auto: update
+  config:
+      import: "optional:configserver:http://localhost:8181"
+
+logging:
+  file:
+   name: C:/Users/log/application.log
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+STRIPE_PUBLIC_KEY: pk_test_51QjxKtG4e1Vww987n4gVKETgThfENlpktks7Pl06Eks6nvKsVDAUfXnhtn5YLJEMyIaHomhNoh0K2RwnDJs0CzEG000U0cvdS7
+STRIPE_SECRET_KEY: sk_test_51QjxKtG4e1Vww987hkIeBTC418SdRgPM1hq0raV40l67vdqfpZ8kMReoN3RlPD6ix5LlJKZrvNYnGU6PB20BWxNi00u6Xe7oT5
+STRIPE_WEBHOOK_SECRET: whsec_23309eeb5131cb89225328ac88b24f5024549b5890fa441aee7c9805fe5df7e2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
