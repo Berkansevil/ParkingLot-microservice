@@ -13,6 +13,7 @@ Projede, **Spring Security**, **JWT** tabanlı kimlik doğrulama, ve **Keycloak*
 - **PostgreSQL** (Veritabanı yönetimi)
 - **OpenFeign** (Mikroservisler arası iletişim)
 - **Lombok** (Kod sadeleştirme)
+-  **Stripe API** (Ödeme işlemleri için)
 
 ## 📌 Mikroservisler
 Bu projede aşağıdaki mikroservisler bulunmaktadır:
