@@ -1,46 +1,120 @@
-# 🅿️ ParkingLot Microservice
+# 🄹️ ParkingLot Microservice
 
-Bu proje, **mikroservis mimarisi** ile geliştirilmiş bir **otopark rezervasyon sistemidir**. Kullanıcılar, otoparklarda mevcut alanları görebilir, rezervasyon yapabilir ve ödeme işlemlerini gerçekleştirebilirler. Proje **Spring Boot** ile geliştirilmiş olup, her bir servis kendi başına çalışabilen ve bağımsız olarak ölçeklendirilebilen mikroservislerden oluşmaktadır.
+**ParkingLot**, mikroservis mimarisi ile gelistirilmis bir otopark rezervasyon sistemidir. Kullanıcılar; otoparklardaki mevcut alanları görüntüleyebilir, rezervasyon yapabilir ve ödeme işlemlerini güvenli bir şekilde gerçekleştirebilir.  
 
-Projede, **Spring Security**, **JWT** tabanlı kimlik doğrulama, ve **Keycloak** entegrasyonu kullanılarak güvenli bir yapı sağlanmıştır. Ayrıca, **PostgreSQL** veritabanı kullanılarak veri yönetimi yapılmıştır. 
+Sistem, Spring Boot kullanılarak inşa edilmiş olup, yüksek erişilebilirlik, esneklik ve kolay ölçeklenebilirlik hedeflenmiştir.
+
+---
+
+## 📚 İçindekiler
+
+- [Özellikler](#özellikler)
+- [Mimari](#mimari)
+- [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
+- [Mikroservisler](#mikroservisler)
+- [Kurulum](#kurulum)
+- [API İletisimi](#api-iletisimi)
+- [Katkıda Bulunma](#katkıda-bulunma)
+
+---
+
+## ✨ Özellikler
+
+- JWT ve Keycloak ile kimlik doğrulama ve yetkilendirme
+- Stripe API ile güvenli ödeme altyapısı
+- Mikroservis mimarisi ile esnek ve bağımsız servis yapısı
+- PostgreSQL ile kalıcı veri saklama
+- OpenFeign ile servisler arası RESTful iletişim
+- E-posta bildirimleri ve detaylı raporlama sistemi
+
+---
+
+## 🛠️ Mimari
+
+Proje, bağımsız çalışabilen ve ihtiyaca göre ölçeklenebilen mikroservislerden oluşmaktadır. Servisler arası iletişim HTTP REST ve OpenFeign aracılığıyla sağlanır.
+
+```
+Kullanıcı -> API Gateway -> [User | Parking | Reservation | Payment | Email | Report] Service
+                                            |
+                                     Keycloak Server
+```
+
+---
 
 ## 🛠️ Kullanılan Teknolojiler
-- **Java 17**
-- **Spring Boot** (REST API geliştirme)
-- **Spring Security** (Güvenlik)
-- **JWT** (Kimlik doğrulama)
-- **Keycloak** (Kimlik ve yetkilendirme yönetimi)
-- **PostgreSQL** (Veritabanı yönetimi)
-- **OpenFeign** (Mikroservisler arası iletişim)
-- **Lombok** (Kod sadeleştirme)
--  **Stripe API** (Ödeme işlemleri için)
 
-## 📌 Mikroservisler
-Bu projede aşağıdaki mikroservisler bulunmaktadır:
+- Java 17  
+- Spring Boot  
+- Spring Security  
+- JWT (JSON Web Token)  
+- Keycloak  
+- PostgreSQL  
+- OpenFeign  
+- Lombok  
+- Stripe API  
+- Docker (isteğe bağlı olarak)
 
-1. **User Service**  
-   Kullanıcıların kaydını ve kimlik doğrulama işlemlerini gerçekleştiren mikroservis.
+---
 
-2. **Parking Service**  
-   Otopark bilgilerini, otoparklarda mevcut alanları ve otopark bilgilerini yöneten mikroservis.
+## 🛌 Mikroservisler
 
-3. **Reservation Service**  
-   Kullanıcıların otoparklarda yer ayırtmasını sağlayan mikroservis.
+### 1. User Service
+- Kullanıcı kayıt, giriş, profil ve kimlik doğrulama işlemleri.
 
-4. **Payment Service**  
-   Kullanıcıların rezervasyonlarının ödemelerini işleyen mikroservis.
+### 2. Parking Service
+- Otopark bilgileri, mevcut alanlar, konum bazlı arama.
 
-5. **Email Service**  
-   Kullanıcılarla iletişime geçmek için e-posta gönderen mikroservis. Örneğin, rezervasyon onayı, hatırlatma e-postaları vb.
+### 3. Reservation Service
+- Rezervasyon oluşturma, iptal etme ve listeleme.
 
-6. **Report Service**  
-   Otoparklar, rezervasyonlar ve ödemelerle ilgili raporlar oluşturan ve yöneticilere sunan mikroservis.
+### 4. Payment Service
+- Stripe API ile ödeme alma, ödeme geçmişi takibi.
 
-## 🚀 Kurulum ve Çalıştırma
+### 5. Email Service
+- Rezervasyon onayı, hatırlatma ve bildirim e-postalarının gönderimi.
 
-Projeyi bilgisayarınıza klonlamak için aşağıdaki adımları izleyebilirsiniz:
+### 6. Report Service
+- Yönetici paneli için otopark ve rezervasyon raporları oluşturma.
 
-1. Projeyi GitHub'dan klonlayın:
-   ```sh
-   git clone https://github.com/kullanici-adi/ParkingLot-Microservice.git
-   cd ParkingLot-Microservice
+---
+
+## 🚀 Kurulum
+
+1. Projeyi klonlayın:
+```bash
+git clone https://github.com/Berkansevil/ParkingLot-Microservice.git
+cd ParkingLot-Microservice
+```
+
+2. Ortam değişkenlerini ayarlayın (application.yml veya .env):
+```yml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parkingdb
+    username: postgres
+    password: password
+...
+```
+
+3. Her mikroservisi bağımsız olarak çalıştırabilir veya Docker Compose ile butun sistem ayağa kaldırılabilir.
+
+4. Keycloak kurulumunu yapın ve client/realm ayarlarını yapılandırın.
+
+5. Stripe API anahtarını sisteminize eklemeyi unutmayın.
+
+---
+
+## 🔗 API İletisimi
+
+Servisler, REST API mantığıyla haberleşir. OpenFeign kullanılarak bir servisten diğerine istek yapılabilir. Swagger/OpenAPI entegrasyonu da eklenerek API dokümantasyonu sunulabilir.
+
+---
+
+
+Proje sahibi: [Berkan Sevil](https://github.com/Berkansevil)
+
+Lisans: MIT
+
+---
+
+
