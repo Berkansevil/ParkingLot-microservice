@@ -14,7 +14,6 @@ Sistem, Spring Boot kullanılarak inşa edilmiş olup, yüksek erişilebilirlik,
 - [Mikroservisler](#mikroservisler)
 - [Kurulum](#kurulum)
 - [API İletisimi](#api-iletisimi)
-- [Katkıda Bulunma](#katkıda-bulunma)
 
 ---
 
