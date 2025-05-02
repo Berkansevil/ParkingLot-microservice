@@ -19,8 +19,7 @@
 | PostgreSQL            | Veritabanı yönetimi                                |
 | Redis                 | Önbellekleme ve geçici veri saklama                |
 | Lombok                | Kod tekrarını azaltmak için                        |
-| JUnit / Mockito       | Birim testleri                                     |
-| Zipkin                | Dağıtık sistemlerde izleme                         |
+
 
 ---
 
