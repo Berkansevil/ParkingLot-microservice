@@ -1,119 +1,107 @@
-# 🄹️ ParkingLot Microservice
+# 🅿️ ParkingLot Microservice
 
-**ParkingLot**, mikroservis mimarisi ile gelistirilmis bir otopark rezervasyon sistemidir. Kullanıcılar; otoparklardaki mevcut alanları görüntüleyebilir, rezervasyon yapabilir ve ödeme işlemlerini güvenli bir şekilde gerçekleştirebilir.  
-
-Sistem, Spring Boot kullanılarak inşa edilmiş olup, yüksek erişilebilirlik, esneklik ve kolay ölçeklenebilirlik hedeflenmiştir.
-
----
-
-## 📚 İçindekiler
-
-- [Özellikler](#özellikler)
-- [Mimari](#mimari)
-- [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
-- [Mikroservisler](#mikroservisler)
-- [Kurulum](#kurulum)
-- [API İletisimi](#api-iletisimi)
-
----
-
-## ✨ Özellikler
-
-- JWT ve Keycloak ile kimlik doğrulama ve yetkilendirme
-- Stripe API ile güvenli ödeme altyapısı
-- Mikroservis mimarisi ile esnek ve bağımsız servis yapısı
-- PostgreSQL ile kalıcı veri saklama
-- OpenFeign ile servisler arası RESTful iletişim
-- E-posta bildirimleri ve detaylı raporlama sistemi
-
----
-
-## 🛠️ Mimari
-
-Proje, bağımsız çalışabilen ve ihtiyaca göre ölçeklenebilen mikroservislerden oluşmaktadır. Servisler arası iletişim HTTP REST ve OpenFeign aracılığıyla sağlanır.
-
-```
-Kullanıcı -> API Gateway -> [User | Parking | Reservation | Payment | Email | Report] Service
-                                            |
-                                     Keycloak Server
-```
+**ParkingLot**, mikroservis mimarisi ile geliştirilmiş bir otopark rezervasyon sistemidir. Kullanıcılar; otoparklardaki mevcut alanları görüntüleyebilir, rezervasyon yapabilir ve ödeme işlemlerini güvenli bir şekilde gerçekleştirebilir.
 
 ---
 
 ## 🛠️ Kullanılan Teknolojiler
 
-- Java 17  
-- Spring Boot  
-- Spring Security  
-- JWT (JSON Web Token)  
-- Keycloak  
-- PostgreSQL  
-- OpenFeign  
-- Lombok  
-- Stripe API  
-- Docker (isteğe bağlı olarak)
+| Teknoloji             | Açıklama                                           |
+|-----------------------|----------------------------------------------------|
+| Java 17               | Backend dili                                       |
+| Spring Boot           | Uygulama geliştirme çatısı                         |
+| Spring Cloud Gateway  | API yönlendirme ve güvenlik                        |
+| Spring Security       | Güvenlik yapılandırmaları                          |
+| Keycloak              | Merkezi kimlik doğrulama ve yetkilendirme sistemi |
+| OpenFeign             | Servisler arası REST iletişimi                     |
+| Kafka                 | Asenkron mikroservis iletişimi                     |
+| Stripe API            | Ödeme işlemleri                                    |
+| PostgreSQL            | Veritabanı yönetimi                                |
+| Redis                 | Önbellekleme ve geçici veri saklama                |
+| Lombok                | Kod tekrarını azaltmak için                        |
+| JUnit / Mockito       | Birim testleri                                     |
+| Zipkin                | Dağıtık sistemlerde izleme                         |
 
 ---
 
-## 🛌 Mikroservisler
+## 🔍 Mikroservisler
 
-### 1. User Service
-- Kullanıcı kayıt, giriş, profil ve kimlik doğrulama işlemleri.
+### 1. **User Service**
+- Kullanıcı kayıt, giriş ve profil işlemleri.
+- Keycloak ile entegre çalışır.
+- Kimlik doğrulama ve rol bazlı yetkilendirme Keycloak üzerinden gerçekleştirilir.
 
-### 2. Parking Service
-- Otopark bilgileri, mevcut alanlar, konum bazlı arama.
+### 2. **Parking Service**
+- Otopark bilgileri yönetilir.
+- Kullanıcılar mevcut alanları görebilir ve konum bazlı filtreleme yapabilir.
+- Admin kullanıcıları yeni otoparklar ekleyebilir ve kapasite ayarlaması yapabilir.
 
-### 3. Reservation Service
-- Rezervasyon oluşturma, iptal etme ve listeleme.
+### 3. **Reservation Service**
+- Kullanıcılar, otoparklara rezervasyon yapabilir ve geçmiş rezervasyonlarını görüntüleyebilir.
+- Rezervasyon sırasında otopark kapasitesi kontrol edilir.
+- Kafka üzerinden Payment ve Email servislerine mesaj gönderilir.
 
-### 4. Payment Service
-- Stripe API ile ödeme alma, ödeme geçmişi takibi.
+### 4. **Payment Service**
+- Stripe API entegrasyonu ile güvenli ödeme işlemleri gerçekleştirilir.
+- Ödeme başarılı/başarısız bilgisi Kafka üzerinden Email servisine iletilir.
+- Ödeme geçmişi kullanıcı bazında takip edilir.
 
-### 5. Email Service
-- Rezervasyon onayı, hatırlatma ve bildirim e-postalarının gönderimi.
+### 5. **Email Service**
+- Kafka’dan gelen rezervasyon ve ödeme mesajlarına göre e-posta gönderimleri yapılır.
+- E-posta bildirimleri (rezervasyon onayı, ödeme sonucu vs.) otomatik tetiklenir.
 
-### 6. Report Service
-- Yönetici paneli için otopark ve rezervasyon raporları oluşturma.
+### 6. **Report Service**
+- Raporlama ve istatistik servisi.
+- Admin kullanıcıları için otopark doluluk oranı, rezervasyon sayıları ve finansal veriler sunulur.
 
 ---
 
 ## 🚀 Kurulum
 
-1. Projeyi klonlayın:
+### 1. Projeyi Klonlayın
 ```bash
 git clone https://github.com/Berkansevil/ParkingLot-Microservice.git
 cd ParkingLot-Microservice
 ```
 
-2. Ortam değişkenlerini ayarlayın (application.yml veya .env):
-```yml
+### 2. Veritabanı Yapılandırması
+`application.yml` ya da `.env` dosyasına aşağıdaki bilgileri ekleyin:
+
+```yaml
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/parkingdb
     username: postgres
-    password: password
-...
+    password: yourpassword
 ```
 
-3. Her mikroservisi bağımsız olarak çalıştırabilir veya Docker Compose ile butun sistem ayağa kaldırılabilir.
+### 3. Keycloak Kurulumu
+- Yeni bir realm oluşturun (örneğin: `parking-lot-realm`)
+- Her servis için bir client tanımlayın
+- `USER`, `ADMIN` rollerini oluşturun
+- İlgili kullanıcıları ve rolleri Keycloak panelinden yönetin
 
-4. Keycloak kurulumunu yapın ve client/realm ayarlarını yapılandırın.
+### 4. Stripe API Anahtarları
+- Stripe'dan bir test hesabı oluşturun
+- `application.yml` dosyasına API anahtarını ekleyin:
 
-5. Stripe API anahtarını sisteminize eklemeyi unutmayın.
-
----
-
-## 🔗 API İletisimi
-
-Servisler, REST API mantığıyla haberleşir. OpenFeign kullanılarak bir servisten diğerine istek yapılabilir. Swagger/OpenAPI entegrasyonu da eklenerek API dokümantasyonu sunulabilir.
-
----
-
-
-Proje sahibi: [Berkan Sevil](https://github.com/Berkansevil)
-
-Lisans: MIT
+```yaml
+stripe:
+  api-key: your_stripe_secret_key
+```
 
 ---
 
+## 📡 API İletişimi
 
+- Mikroservisler RESTful mimari ile haberleşir.
+- Servisler arası çağrılar OpenFeign üzerinden yapılır.
+- Swagger (SpringDoc) ile her servise özel API dokümantasyonu sağlanabilir.
+
+---
+
+## 🔗 Daha Fazlası
+
+📁 Projenin tüm kaynak kodlarına ve detaylarına aşağıdaki GitHub bağlantısından ulaşabilirsiniz:
+
+👉 [ParkingLot-Microservice GitHub Repo](https://github.com/Berkansevil/ParkingLot-Microservice)
